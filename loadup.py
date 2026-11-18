@@ -18,7 +18,6 @@ test_data = datasets.MNIST(root=".", train=False, download=False, transform=tran
 train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
 test_loader = DataLoader(test_data, batch_size=1000, shuffle=False)
 
-# 5. Define the Feedforward Neural Network
 class FeedforwardMNIST(nn.Module):
     def __init__(self):
         super().__init__()
@@ -38,11 +37,9 @@ class FeedforwardMNIST(nn.Module):
 
 model = FeedforwardMNIST().to(device)
 
-# 6. Set up loss function and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-# 7. Training loop
 epochs = 5
 for epoch in range(epochs):
     model.train()
@@ -62,7 +59,6 @@ for epoch in range(epochs):
     avg_loss = running_loss / len(train_loader)
     print(f"Epoch [{epoch + 1}/{epochs}] - Loss: {avg_loss:.4f}")
 
-# 8. Evaluation loop
 model.eval()
 correct = 0
 total = 0
