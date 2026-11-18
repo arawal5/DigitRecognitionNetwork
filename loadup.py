@@ -14,7 +14,6 @@ transform = transforms.Compose([
 train_data = datasets.MNIST(root=".", train=True, download=False, transform=transform)
 test_data = datasets.MNIST(root=".", train=False, download=False, transform=transform)
     
-# 4. Wrap datasets in DataLoaders for batching
 train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
 test_loader = DataLoader(test_data, batch_size=1000, shuffle=False)
 
